@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <form @submit.prevent>
+                <div style="display: flex; flex-direction: column;"
+                    class="details" v-if="state">
+                    <span>Name : {{name}} </span> <br>
+
+                    <span>Role : {{role}}</span> <br>
+
+                    <span>Number of press : <span
+                            style="color: blue; font-size: 19px;">{{count}}</span></span>
+                    <br>
+                    <button style="margin-right: 5px; width:120px;"
+                        type="submit" @click="increase()">Increase
+                        Count</button> <br>
+                    <button style="width: 120px;" type="submit"
+                        @click="decrease()">Decrease Count</button> <hr>
+                </div>
+                <div class="else" v-else
+                    style="color: red; font-size: 30px; display: flex; justify-content: center; margin-top: 20%;">
+                    currently data has been Hidded
+                </div>
+            </form>
+
+            <div class="stateHandle">
+                <button
+                    style="margin-left: 45%; margin-top: 15px; font-size: 18px;"
+                    style="{color: color}" @click="changeState()">
+                    <span class="bttn" style=" display: flex;
+                    width: 50px;
+                    height: 30px;
+                    align-items: center;
+                    justify-content: center;"
+                        v-show="!state">open</span>
+
+                    <span class="bttn" style="display: flex;
+                    width: 50px;
+                    height: 30px;
+                    align-items: center;
+                    justify-content: center;"
+                        v-show="state">close</span>
+                </button>
+            </div>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>
