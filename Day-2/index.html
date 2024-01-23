@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <title>form</title>
+    </head>
+    <body>
+        <div class="container">
+            <form action @submit.prevent class="loginForm">
+
+                <input type="text"
+                    placeholder="Enter Your Name"
+                    v-model="email"
+                    class="email" 
+                    required> <br>
+
+                <input type="password"
+                    placeholder="Enter your password"
+                    v-model="password"
+                    class="password"
+                    required> <br>
+                <button @click="handleLogin()" class="loginBtn">login</button>
+
+                <span v-show="isShow" >
+                    <h2 >Name : {{email}}</h2>
+                    <h2>Password : {{password}}</h2>
+                    <button @click="handleClear()" class="clearBtn">clear</button>
+                </span>
+            </form>
+        </div>
+
+        <script src="./index.js"></script>
+    </body>
+</html>
