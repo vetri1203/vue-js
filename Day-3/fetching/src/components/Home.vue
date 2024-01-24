@@ -10,9 +10,8 @@
         <span>Country : {{ details.country }}</span> <br>
         <!-- <span>Matchs Played : {{ details.match-played }}</span> <br> -->
         <span>Role : {{ details.role }}</span> <br>
-        <span>Runs : {{ details.runs }}</span>
-
-
+        <span v-if="details.runs">Runs : {{ details.runs }}</span>
+        <span v-if="details.wickets">Wickets : {{ details.wickets }}</span>
         <hr>
     </div>
 </template>
