@@ -2,8 +2,14 @@
     <h1>Home page</h1>
 
     <div class="container">
-        <router-link class="signupLink" to="signup">Signup</router-link>
-        <router-link class="loginLink" to="/login">Login</router-link>
+        <span>
+            <router-link class="signupLink" to="/signup">Signup</router-link> <br>
+
+        </span>
+        <span>
+            <router-link class="loginLink" to="/login">Login</router-link>
+        </span>
+
 
     </div>
 </template>

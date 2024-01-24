@@ -1,7 +1,7 @@
 <template>
     <h1>Signup page</h1>
-
-    <form @submit.prevent>
+ 
+    <form @submit.prevent class="form-container">
         <input 
             type="text" 
             id="name" 
@@ -11,7 +11,9 @@
             v-model="name">
         <br>
         <input 
-            type="number" 
+            type="tel"
+
+            maxlength="12" 
             id="number" 
             placeholder="phone number" 
             class="number" 
@@ -25,10 +27,11 @@
             class="email" 
             autocomplete="on" 
             v-model="email"> <br>
-
-        <input 
+ 
+        <input  @copy.prevent
             type="password" 
             id="password" 
+            minlength="8"
             placeholder="password" 
             class="password" 
             autocomplete="on"
@@ -36,7 +39,7 @@
 
         <button @click="HandleSubmit">signup</button> <br>
 
-        <router-link to="/">Login</router-link>
+        <router-link to="/login" class="link-to-login">Login</router-link>
         <router-view></router-view>
 
     </form>
@@ -77,3 +80,27 @@ export default {
 }
 
 </script>
+
+
+<style>
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding:10px auto;
+    background-color: grey;
+}
+input[type='text']{
+    margin-top: 20px;
+}
+
+.link-to-login{
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.link-to-login:hover{
+    color: rgb(255, 217, 0);
+}
+</style>

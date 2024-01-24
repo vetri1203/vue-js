@@ -1,31 +1,21 @@
 <template>
     <div class="container">
 
-        <form action="" @submit.prevent>
-            <label for="email">Email :</label>
-            <input 
-            id="email"
-            type="email"
-            autocomplete="off"
-            placeholder="Email"
-            v-model="email"
-            > <br>
+        <form action="" @submit.prevent class="signup-form" >
+            <input id="email" type="email" autocomplete="off" placeholder="Email" v-model="email"> <br>
 
-            <label for="password">password :</label>
-                <input 
-                id="password"
-                :type="passtype"
-                autocomplete="off"
-                placeholder="password"
-                v-model="password"
-                > <br>
- 
-                <input id="show" type="checkbox" v-model="isShowPassword" @click="handleTogglePassword()" >
+            <input id="password" :type="passtype" autocomplete="off" placeholder="password" v-model="password"> <br>
+
+            <span>
+                <input id="show" type="checkbox" v-model="isShowPassword" @click="handleTogglePassword()">
                 <label for="show">show password</label> <br>
+            </span>
 
-                <button @click="HandleLogin">Login</button><br>
-                <!-- <button @click="NavSignup">Signup</button> -->
-               <router-link :to="{name:'Signup'}">Signup</router-link>
+
+
+            <button @click="HandleLogin">Login</button><br>
+            <!-- <button @click="NavSignup">Signup</button> -->
+            <router-link :to="{ name: 'Signup' }"  class="link-to-signup">Signup</router-link>
 
         </form>
 
@@ -46,8 +36,8 @@ import Signup from './Signup.vue';
 export default {
     name: "Login",
     components: {
-    Signup
-},
+        Signup
+    },
 
     data() {
         return {
@@ -55,28 +45,25 @@ export default {
             password: '',
             isShowPassword: false,
             passtype: 'password',
-            loginStatus:false
+            loginStatus: false
         }
     },
 
-    methods:{
+    methods: {
         HandleLogin() {
-            if (this.email != "")
-            {
+            if (this.email != "") {
                 const check = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-                if (this.email.match(check))
-                {
+                if (this.email.match(check)) {
                     if (this.password != '') {
                         this.loginStatus = true;
-                        // this.email='', this.password='',this.isShowPassword=false
                     }
                     else {
                         alert("Enter password");
-                        }
+                    }
                 }
                 else {
-                        alert("enter correct email")
-                    }
+                    alert("enter correct email")
+                }
             }
             else {
                 alert("Enter email");
@@ -84,8 +71,7 @@ export default {
         },
 
         handleTogglePassword() {
-            if (!this.isShowPassword)
-            {
+            if (!this.isShowPassword) {
                 this.passtype = 'text';
             }
             else {
@@ -100,6 +86,28 @@ export default {
 
 
     }
-    
+
 }
 </script>
+
+<style>
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding:10px auto;
+    background-color: grey;
+    
+}
+
+.link-to-signup{
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.link-to-signup:hover{
+    color: rgb(255, 217, 0);
+}
+
+</style>
